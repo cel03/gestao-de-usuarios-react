@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import UserList from './components/UserList'
 
 function App() {
+  const users = [
+    {
+      email: 'user1@gmail.com',
+      name: 'User 1'
+    },
+    {
+      email: 'user2@gmail.com',
+      name: 'User 2'
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <UserList users={users} />
     </div>
   );
 }
