@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const UserList = ({users}) => (
   <table class="table">
@@ -14,12 +15,13 @@ const UserList = ({users}) => (
     {
       users.map((user, i) => {
         return (
-        <tr>
-          <th scope="row">{i + 1}</th>
-          <td>{user.email}</td>
-          <td>{user.name}</td>
-          <td>@mdo</td>
-        </tr>)
+            <tr>
+              <th scope="row">{i + 1}</th>
+              <td><Link to={`/user/${i + 1}`}>{user.email}</Link></td>
+              <td>{user.name}</td>
+              <td>@mdo</td>
+            </tr>
+        )
       })
     }
   </tbody>
