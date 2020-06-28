@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  useParams
+} from "react-router-dom";
 
 const UserEdit = () => {
+  let { id } = useParams();
+
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getAPI = async () => {
       const result = await axios(
-        'http://localhost:8000/users/1/',
+        `http://localhost:8000/users/${id}/`,
       );
       setData(result.data)
       setIsLoading(false)
