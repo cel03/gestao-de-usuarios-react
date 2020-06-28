@@ -23,23 +23,23 @@ const UserEdit = () => {
       ? <div>Loading...</div>
       : (
         <form>
-          <div class="form-group">
-            <label for="userEmail">Endereço de email</label>
-            <input type="email" readonly class="form-control-plaintext" id="userEmail" aria-describedby="emailHelp" value={data.email}/>
+          <div className="form-group">
+            <label htmlFor="userEmail">Endereço de email</label>
+            <input type="email" readOnly className="form-control-plaintext" id="userEmail" aria-describedby="emailHelp" value={data.email}/>
           </div>
-          <div class="form-group">
-            <label for="userName">Nome</label>
-            <input type="text" class="form-control" id="userName"/>
+          <div className="form-group">
+            <label htmlFor="userName">Nome</label>
+            <input type="text" className="form-control" id="userName"/>
           </div>
-          <div class="form-group">
-            <label for="userPassword">Senha</label>
-            <input type="password" class="form-control" id="userPassword"/>
+          <div className="form-group">
+            <label htmlFor="userPassword">Senha</label>
+            <input type="password" className="form-control" id="userPassword"/>
           </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-            <label class="form-check-label" for="exampleCheck1">Is Staff</label>
+          <div className="form-group form-check">
+            <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
+            <label className="form-check-label" htmlFor="exampleCheck1">Is Staff</label>
           </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" className="btn btn-primary">Enviar</button>
         </form>
       )
     }
