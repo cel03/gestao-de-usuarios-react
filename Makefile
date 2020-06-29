@@ -1,2 +1,5 @@
-storybook:
-	npm run storybook
+setup:
+	npm install
+
+start:
+	npm run start
