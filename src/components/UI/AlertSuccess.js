@@ -1,10 +1,10 @@
 import React from 'react'
 
-const AlertSuccess = ({userAdded}) => {
+const AlertSuccess = ({show}) => {
   return (
     <React.Fragment>
     {
-      userAdded
+      show
       ?(
         <div className="alert alert-success alert-dismissible fade show" role="alert">
           Usuário <strong>criado</strong> com sucesso!
