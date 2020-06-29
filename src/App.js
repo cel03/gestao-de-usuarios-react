@@ -12,6 +12,8 @@ const App = () => {
   const [hasError, setHasError] = useState(false)
   const [forceUpdate, setForceUpdate] = useState(0)
   const [userAdded, setUserAdded] = useState(false)
+  const [userAddedError, setUserAddedError ] = useState(false)
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     const getAPI = async () => {
@@ -42,8 +44,13 @@ const App = () => {
     try{
       await axios.post(`http://localhost:8000/users/`, {...user})
       setForceUpdate(forceUpdate+1)
-      setUserAdded(true)
+      setMessage('Usuário cadastrado com sucesso!')
+      setUserAddedError(false)
     } catch {
+      setMessage('Falha ao cadastrar o usuário...')
+      setUserAddedError(true)
+    } finally {
+      setUserAdded(true)
     }
   }
 
@@ -55,7 +62,9 @@ const App = () => {
           <UserList isLoading={isLoading} hasError={hasError} users={users} handleDeleteUserClick={handleDeleteUser} />
         </Route>
         <Route exact path="/user/add">
-          <UserAdd callbackUserAdd={callbackUserAdd} userAdded={userAdded}/>
+          <UserAdd callbackUserAdd={callbackUserAdd} setUserAdded={setUserAdded}
+                    userAdded={userAdded} userAddedError={userAddedError}
+                    message={message} />
         </Route>
         <Route path="/user/:id">
           <UserEdit />
