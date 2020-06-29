@@ -36,6 +36,12 @@ const UserAdd = ({callbackUserAdd, userAdded}) => {
                 <input type="text" className="form-control" id="userName" name="name" value={user.name} onChange={handleInputChange} required/>
               </div>
               <div className="form-group">
+                <label htmlFor="userBirthday">Data de Nascimento</label>
+                <input
+                    type="text" className="form-control" id="userBirthday" name="date_of_birth"
+                    onChange={handleInputChange} placeholder="YYYY-MM-DD" pattern="[0-9]{4}(-[0-9]{2}){2}" required/>
+              </div>
+              <div className="form-group">
                 <label htmlFor="userPassword">Senha</label>
                 <input type="password" className="form-control" id="userPassword" name="email"/>
               </div>
