@@ -12,6 +12,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [forceUpdate, setForceUpdate] = useState(0)
+  const [userAddLoading, setUserAddLoading] = useState(false)
   const [userAdded, setUserAdded] = useState(false)
   const [userAddedError, setUserAddedError ] = useState(false)
   const [message, setMessage] = useState('')
@@ -42,6 +43,7 @@ const App = () => {
   }
 
   const callbackUserAdd = async (user) => {
+    setUserAddLoading(true)
     try{
       await axios.post(`http://localhost:8000/users/`, {...user})
       setForceUpdate(forceUpdate+1)
@@ -52,6 +54,7 @@ const App = () => {
       setUserAddedError(true)
     } finally {
       setUserAdded(true)
+      setUserAddLoading(false)
     }
   }
 
@@ -63,7 +66,7 @@ const App = () => {
           <UserList isLoading={isLoading} hasError={hasError} users={users} handleDeleteUserClick={handleDeleteUser} />
         </Route>
         <Route exact path="/user/add">
-          <UserAdd callbackUserAdd={callbackUserAdd} setUserAdded={setUserAdded}
+          <UserAdd callbackUserAdd={callbackUserAdd} userAddLoading={userAddLoading} setUserAdded={setUserAdded}
                     userAdded={userAdded} userAddedError={userAddedError}
                     message={message} />
         </Route>

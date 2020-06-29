@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loading from "../Loading"
 import AlertMessage from "../AlertMessage"
 
-const UserAdd = ({callbackUserAdd, userAdded, setUserAdded, userAddedError, message}) => {
-  const [isLoading, setIsLoading] = useState(false)
+const UserAdd = ({callbackUserAdd, isLoading, userAdded, setUserAdded, userAddedError, message}) => {
   const [user, setUser] = useState({})
 
   useEffect(()=>{
