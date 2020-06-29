@@ -55,7 +55,7 @@ const UserEdit = () => {
           }}>
             <div className="form-group">
               <label htmlFor="userEmail">Endereço de email</label>
-              <input type="email" readOnly className="form-control-plaintext" id="userEmail" aria-describedby="emailHelp" value={user.email}/>
+              <input type="email" readOnly className="form-control" id="userEmail" aria-describedby="emailHelp" value={user.email}/>
             </div>
             <div className="form-group">
               <label htmlFor="userName">Nome</label>
