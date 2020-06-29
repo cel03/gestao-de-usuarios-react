@@ -6,6 +6,11 @@ const UserAdd = ({callbackUserAdd, userAdded, setUserAdded, userAddedError, mess
   const [isLoading, setIsLoading] = useState(false)
   const [user, setUser] = useState({})
 
+  useEffect(()=>{
+    return () => {
+      setUserAdded(false)}
+  }, [])
+
   const handleInputChange = (event) => {
     const target = event.target;
     const value = target.name === 'is_staff' ? target.checked : target.value;
