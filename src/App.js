@@ -56,7 +56,7 @@ const App = () => {
   }
 
   return (
-    <div class="container.fluid">
+    <div className="container.fluid">
       <NavBar/>
       <Switch>
         <Route exact path="/">
