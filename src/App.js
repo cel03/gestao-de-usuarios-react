@@ -10,6 +10,7 @@ const App = () => {
   const [users, setUsers] = useState({});
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
+  const [forceUpdate, setForceUpdate] = useState(0)
 
   useEffect(() => {
     const getAPI = async () => {
@@ -23,14 +24,25 @@ const App = () => {
       }
     }
     getAPI()
-  }, [])
+  }, [forceUpdate])
+
+  const handleDeleteUser = async (id) => {
+    try{
+        const result = await axios.delete(`http://localhost:8000/users/${id}/`)
+        setForceUpdate(forceUpdate+1)
+      } catch {
+        setHasError(true)
+      } finally {
+        setIsLoading(false)
+      }
+  }
 
   return (
     <div class="container.fluid">
       <NavBar/>
       <Switch>
         <Route exact path="/">
-          <UserList isLoading={isLoading} users={users} />
+          <UserList isLoading={isLoading} users={users} handleDeleteUserClick={handleDeleteUser} />
         </Route>
         <Route exact path="/user/add">
           <UserAdd />
