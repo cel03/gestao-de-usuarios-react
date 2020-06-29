@@ -3,6 +3,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import UserList from './components/UserList'
 import UserEdit from './components/UserEdit'
 import NavBar from './components/NavBar'
+import UserAdd from './components/UserAdd'
 import axios from 'axios'
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <UserList isLoading={isLoading} users={users} />
+        </Route>
+        <Route exact path="/user/add">
+          <UserAdd />
         </Route>
         <Route path="/user/:id">
           <UserEdit />
