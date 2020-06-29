@@ -11,6 +11,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [forceUpdate, setForceUpdate] = useState(0)
+  const [userAdded, setUserAdded] = useState(false)
 
   useEffect(() => {
     const getAPI = async () => {
@@ -37,6 +38,15 @@ const App = () => {
       }
   }
 
+  const callbackUserAdd = async (user) => {
+    try{
+      await axios.post(`http://localhost:8000/users/`, {...user})
+      setForceUpdate(forceUpdate+1)
+      setUserAdded(true)
+    } catch {
+    }
+  }
+
   return (
     <div class="container.fluid">
       <NavBar/>
@@ -45,7 +55,7 @@ const App = () => {
           <UserList isLoading={isLoading} users={users} handleDeleteUserClick={handleDeleteUser} />
         </Route>
         <Route exact path="/user/add">
-          <UserAdd />
+          <UserAdd callbackUserAdd={callbackUserAdd} userAdded={userAdded}/>
         </Route>
         <Route path="/user/:id">
           <UserEdit />

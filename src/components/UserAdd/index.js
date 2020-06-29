@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Loading from "../Loading"
 import AlertSuccess from "../UI/AlertSuccess"
 
-const UserAdd = () => {
-
+const UserAdd = ({callbackUserAdd, userAdded}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [user, setUser] = useState({})
-  const [userAdded, setUserAdded] = useState(false)
 
   const handleInputChange = (event) => {
     const target = event.target;
@@ -16,14 +13,6 @@ const UserAdd = () => {
     const name = target.name;
 
     setUser({ ...user, [name]: value })
-  }
-
-  const addUser = async () => {
-    try{
-      await axios.post(`http://localhost:8000/users/`, {...user})
-      setUserAdded(true)
-    } catch {
-    }
   }
 
   return (
@@ -36,7 +25,7 @@ const UserAdd = () => {
             <AlertSuccess show={userAdded}/>
             <form onSubmit={(event)=> {
               event.preventDefault()
-              addUser()
+              callbackUserAdd(user)
             }}>
               <div className="form-group">
                 <label htmlFor="userEmail">Endereço de email</label>
