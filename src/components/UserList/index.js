@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Loading from "../Loading"
 import ActionButtons from "../UI/ActionButtons"
-import axios from 'axios'
 
 const UserList = ({isLoading, users, handleDeleteUserClick}) => (
   <React.Fragment>
