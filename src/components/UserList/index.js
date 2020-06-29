@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import Loading from "../Loading"
 import ActionButtons from "../UI/ActionButtons"
 
-const UserList = ({isLoading, users, handleDeleteUserClick}) => (
+const UserList = ({isLoading, hasError, users, handleDeleteUserClick}) => (
   <React.Fragment>
     {isLoading
     ? <Loading />
-    : (
+    : hasError
+      ? <div>Não foi possível buscar os usuários...</div>
+      : (
       <table class="table">
         <thead>
           <tr>

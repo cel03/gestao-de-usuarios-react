@@ -52,7 +52,7 @@ const App = () => {
       <NavBar/>
       <Switch>
         <Route exact path="/">
-          <UserList isLoading={isLoading} users={users} handleDeleteUserClick={handleDeleteUser} />
+          <UserList isLoading={isLoading} hasError={hasError} users={users} handleDeleteUserClick={handleDeleteUser} />
         </Route>
         <Route exact path="/user/add">
           <UserAdd callbackUserAdd={callbackUserAdd} userAdded={userAdded}/>
