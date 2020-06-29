@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Loading from "../Loading"
 
 const UserList = ({isLoading, users}) => (
   <React.Fragment>
     {isLoading
-    ? (<div class="spinner-grow" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>)
+    ? <Loading />
     : (
       <table class="table">
         <thead>

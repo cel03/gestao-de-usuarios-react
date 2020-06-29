@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   useParams
 } from "react-router-dom";
+import Loading from "../Loading"
 
 const UserEdit = () => {
   let { id } = useParams();
@@ -29,7 +30,7 @@ const UserEdit = () => {
   return (
     <React.Fragment>
     { isLoading
-      ? <div>Loading...</div>
+      ? <Loading />
       : hasError
         ? <div>Não foi possível encontrar o usuário...</div>
         : (
