@@ -21,7 +21,7 @@ const UserList = ({isLoading, users, handleDeleteUserClick}) => (
           {
             users.map((user, i) => {
               return (
-                  <tr>
+                  <tr key={user.id}>
                     <th scope="row">{i + 1}</th>
                     <td><Link to={`/user/${user.id}`}>{user.email}</Link></td>
                     <td>{user.name}</td>
