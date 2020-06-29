@@ -4,6 +4,7 @@ import {
   useParams
 } from "react-router-dom";
 import Loading from "../Loading"
+import AlertMessage from "../AlertMessage"
 
 const UserEdit = () => {
   let { id } = useParams();
@@ -11,6 +12,9 @@ const UserEdit = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [user, setUser] = useState({})
+  const [userUpdated, setUserUpdated] = useState(false)
+  const [userUpdatedError, setUserUpdatedError] = useState(false)
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     const getAPI = async () => {
@@ -36,7 +40,17 @@ const UserEdit = () => {
 
   const updateUser = () => {
     //console.log({...user})
-    axios.patch(`http://localhost:8000/users/${id}/`, {...user})
+    try{
+      axios.patch(`http://localhost:8000/users/${id}/`, {...user})
+      setMessage('Usuário atualizado com sucesso!')
+      setUserUpdatedError(false)
+    } catch {
+      setMessage('Erro ao atualizar usuário...')
+      setUserUpdatedError(true)
+    } finally {
+      setUserUpdated(true)
+    }
+
   }
 
   return (
@@ -46,6 +60,8 @@ const UserEdit = () => {
       : hasError
         ? <div>Não foi possível encontrar o usuário...</div>
         : (
+          <React.Fragment>
+            <AlertMessage show={userUpdated} error={userUpdatedError} message={message} />
           <form onSubmit={(event)=> {
             event.preventDefault()
             updateUser()
@@ -68,6 +84,7 @@ const UserEdit = () => {
             </div>
             <button type="submit" className="btn btn-primary">Enviar</button>
           </form>
+          </React.Fragment>
         )
     }
     </React.Fragment>
