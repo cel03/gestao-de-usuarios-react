@@ -10,7 +10,7 @@ const UserList = ({isLoading, hasError, users, handleDeleteUserClick}) => (
     : hasError
       ? <div>Não foi possível buscar os usuários...</div>
       : (
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
