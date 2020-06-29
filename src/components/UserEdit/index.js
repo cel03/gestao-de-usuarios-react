@@ -24,7 +24,7 @@ const UserEdit = () => {
     }
 
     getAPI()
-  }, [])
+  }, [id])
 
   return (
     <React.Fragment>
