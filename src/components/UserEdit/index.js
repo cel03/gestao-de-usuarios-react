@@ -63,7 +63,7 @@ const UserEdit = () => {
             </div>
             <div className="form-group">
               <label htmlFor="userPassword">Senha</label>
-              <input type="password" className="form-control" id="userPassword"/>
+              <input type="password" className="form-control" id="userPassword" placeholder="Digite nova senha..."/>
             </div>
             <div className="form-group form-check">
               <input type="checkbox" className="form-check-input" id="exampleCheck1" name="is_staff" checked={user.is_staff} onChange={handleInputChange}/>
