@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import Loading from "../Loading"
+import ActionButtons from "../UI/ActionButtons"
+import axios from 'axios'
 
-const UserList = ({isLoading, users}) => (
+const UserList = ({isLoading, users, handleDeleteUserClick}) => (
   <React.Fragment>
     {isLoading
     ? <Loading />
@@ -13,7 +15,7 @@ const UserList = ({isLoading, users}) => (
             <th scope="col">#</th>
             <th scope="col">Email</th>
             <th scope="col">Name</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -22,17 +24,17 @@ const UserList = ({isLoading, users}) => (
               return (
                   <tr>
                     <th scope="row">{i + 1}</th>
-                    <td><Link to={`/user/${i + 1}`}>{user.email}</Link></td>
+                    <td><Link to={`/user/${user.id}`}>{user.email}</Link></td>
                     <td>{user.name}</td>
-                    <td>@mdo</td>
+                    <td><ActionButtons userId={user.id} callbackDeleteUserClick={handleDeleteUserClick} /></td>
                   </tr>
               )
             })
           }
         </tbody>
       </table>
-    )
-   }
+      )
+    }
   </React.Fragment>
 )
 
