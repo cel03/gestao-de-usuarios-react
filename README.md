@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+## Setup
+- `make setup` (npm)
+## Start development server
+- `make start`
 ## Available Scripts
 
 In the project directory, you can run:
