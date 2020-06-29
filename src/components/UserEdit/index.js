@@ -8,7 +8,6 @@ import Loading from "../Loading"
 const UserEdit = () => {
   let { id } = useParams();
 
-  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [user, setUser] = useState({})
@@ -17,9 +16,7 @@ const UserEdit = () => {
     const getAPI = async () => {
       try{
         const result = await axios(`http://localhost:8000/users/${id}/`);
-        setData(result.data)
         setUser(result.data)
-        console.log({...data})
       } catch {
         setHasError(true)
       } finally {
