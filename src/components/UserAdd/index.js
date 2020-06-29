@@ -34,18 +34,18 @@ const UserAdd = () => {
           }}>
             <div className="form-group">
               <label htmlFor="userEmail">Endereço de email</label>
-              <input type="email" className="form-control" id="userEmail" aria-describedby="emailHelp" name="email" value={user.email} onChange={handleInputChange}/>
+              <input type="email" className="form-control" id="userEmail" aria-describedby="emailHelp" name="email" value={user.email} onChange={handleInputChange} required/>
             </div>
             <div className="form-group">
               <label htmlFor="userName">Nome</label>
-              <input type="text" className="form-control" id="userName" name="name" value={user.name} onChange={handleInputChange}/>
+              <input type="text" className="form-control" id="userName" name="name" value={user.name} onChange={handleInputChange} required/>
             </div>
             <div className="form-group">
               <label htmlFor="userPassword">Senha</label>
               <input type="password" className="form-control" id="userPassword" name="email"/>
             </div>
             <div className="form-group form-check">
-              <input type="checkbox" className="form-check-input" id="exampleCheck1" name="is_staff" checked={user.is_staff} onChange={handleInputChange}/>
+              <input type="checkbox" className="form-check-input" id="exampleCheck1" name="is_staff" checked={user.is_staff} onChange={handleInputChange} required/>
               <label className="form-check-label" htmlFor="exampleCheck1">Is Staff</label>
             </div>
             <button type="submit" className="btn btn-primary">Enviar</button>
