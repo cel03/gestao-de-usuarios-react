@@ -45,7 +45,7 @@ const UserAdd = () => {
               <input type="password" className="form-control" id="userPassword" name="email"/>
             </div>
             <div className="form-group form-check">
-              <input type="checkbox" className="form-check-input" id="exampleCheck1" name="is_staff" checked={user.is_staff} onChange={handleInputChange} required/>
+              <input type="checkbox" className="form-check-input" id="exampleCheck1" name="is_staff" checked={user.is_staff} onChange={handleInputChange}/>
               <label className="form-check-label" htmlFor="exampleCheck1">Is Staff</label>
             </div>
             <button type="submit" className="btn btn-primary">Enviar</button>
