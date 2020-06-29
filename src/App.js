@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import UserAdd from './components/UserAdd'
 import axios from 'axios'
 
+//TO DO: Utilizar Context
 const App = () => {
   const [users, setUsers] = useState({});
   const [isLoading, setIsLoading] = useState(true)
